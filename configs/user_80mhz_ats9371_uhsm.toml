@@ -1,0 +1,44 @@
+# Hardware profile for the user's 80 MHz DCS system.
+#
+# This file is intentionally a calibration template. Add the following four
+# keys after measuring them; processing will refuse to invent their values:
+# delta_frep_hz = ...
+# block_samples = ...       # approximately fs_hz / delta_frep_hz
+# optical_anchor_wavenumber_cm = ...
+# reference_wavelengths_m = [..., ...]
+
+# Normal operating acquisition rate; the ATS9371 hardware maximum is 1 GS/s.
+fs_hz = 500000000.0
+frep_hz = 80000000.0
+
+# One-sided, alias-free DCS band. The 39 MHz guard stays below frep/2 = 40 MHz.
+rf_min_hz = 300.0
+rf_max_hz = 39000000.0
+rf_anchor_hz = 0.0
+phase_sign = -1.0
+timing_sign = -1.0
+window = "hann"
+
+# Target band used for design-limit checks, not an assertion of actual coverage.
+optical_wavelength_min_m = 7.5e-6
+optical_wavelength_max_m = 11.5e-6
+
+# ATS9371, from the supplied user manual.
+adc_bits = 12
+adc_full_scale_peak_v = 0.4
+adc_input_impedance_ohm = 50.0
+adc_analog_bandwidth_hz = 1000000000.0
+adc_record_alignment_samples = 128
+adc_min_record_samples = 256
+adc_storage_bytes_per_sample = 2
+
+# VIGO UHSM-I-10.6 RF output, specified for a 50 ohm load.
+detector_rf_low_cutoff_hz = 300.0
+detector_rf_high_cutoff_hz = 700000000.0
+detector_load_ohm = 50.0
+detector_voltage_responsivity_v_w = 700.0
+
+beat_note_centers_hz = [] # CALIBRATE: four CW beat-note center frequencies
+beat_note_bandwidth_hz = 5000000.0
+baseline_method = "mfid"
+baseline_que_frequency_cutoff = 0.02

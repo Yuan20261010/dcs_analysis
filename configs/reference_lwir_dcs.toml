@@ -1,0 +1,18 @@
+# Reference starting point for the Ahmad 2026 / Moretti 2024 architecture.
+# Replace every hardware-dependent value marked CALIBRATE before real data use.
+fs_hz = 200000000.0
+frep_hz = 250000000.0
+delta_frep_hz = 1450.0
+block_samples = 138000
+optical_anchor_wavenumber_cm = 869.5
+rf_anchor_hz = 0.0
+rf_min_hz = 0.0
+rf_max_hz = 100000000.0
+phase_sign = -1.0
+timing_sign = -1.0
+window = "hann"
+reference_wavelengths_m = [1.53e-6, 1.565e-6]
+beat_note_centers_hz = [] # CALIBRATE: [ref1_comb1, ref1_comb2, ref2_comb1, ref2_comb2]
+beat_note_bandwidth_hz = 5000000.0
+baseline_method = "mfid"
+baseline_que_frequency_cutoff = 0.02
